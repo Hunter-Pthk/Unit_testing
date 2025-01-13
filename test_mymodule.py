@@ -2,7 +2,7 @@
 import unittest
 
 # Import the 'square' and 'double' functions from the 'mymodule' module.
-from mymodule import square, double
+from mymodule import square, double, add
 
 class TestSquare(unittest.TestCase): 
     # Define the first test method for the 'square' function.
@@ -24,4 +24,14 @@ class TestDouble(unittest.TestCase):
         
 # Run all the test cases defined in the module when the script is executed.
 # This will automatically discover and run all the test cases defined in the module.
+class TestAdd(unittest.TestCase):
+    # Method for addition function.
+    def test1(self):
+        self.assertEqual(add(2, 4), 6) # test when 2 and 4 is passed as input the output should be 6
+        self.assertEqual(add(0, 0), 0) # test when 0 and 0 is passed as input the output should be 0
+        self.assertEqual(add(2.3, 3.6), 5.9) # test when 2.3 and 3.6 is passed as input and output should be 
+        self.assertEqual(add('hello', 'world'),'helloworld') # test two strings
+        self.assertEqual(add(2.3000, 4.300), 6.6) # Testing inputs 2.3000 and 4.300 to give output 6.6
+        self.assertNotEqual(add(-2, -2), 0) # Test when inputs are -2 and output should not be 0
+        
 unittest.main()
